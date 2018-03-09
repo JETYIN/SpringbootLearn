@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"com.example.dylan"})//配置spring boot扫描整个项目包目录
 public class SpringbootLearnApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootLearnApplication.class, args);
-	}
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(SpringbootLearnApplication.class, args);
+    }
 }
