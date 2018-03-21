@@ -27,6 +27,7 @@
         <mysql_version>5.1.21</mysql_version>
         <pagehlper_version>4.2.1</pagehlper_version>
         <tk_mybatis_version>3.3.9</tk_mybatis_version>
+        <druid_version>1.0.5</druid_version>
     </properties>
 
     <dependencies>
@@ -56,6 +57,17 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql_version}</version>
         </dependency>
+        <!--配置数据库连接池，缓存数据库连接对象，此处使用阿里连接池-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
 
     </dependencies>
 
