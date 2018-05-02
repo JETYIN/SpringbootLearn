@@ -23,4 +23,5 @@ public interface IStudentDao {
 
     @Select("SELECT * FROM USERINFO WHERE username=#{username}")
     List<Student> getStudentByUsername(String username);
+
 }

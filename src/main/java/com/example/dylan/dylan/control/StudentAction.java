@@ -16,7 +16,7 @@ import static javafx.scene.input.KeyCode.R;
 /**
  * Created by Administrator on 2018/2/26.
  */
-@RestController
+@RestController//注解返回类型为json
 @RequestMapping("student/")//当前为此类的公共接口
 public class StudentAction {
 
@@ -88,4 +88,10 @@ public class StudentAction {
         return ResponseEntity.ok(response);//返回数据
     }
 
+    @RequestMapping(value = "/docker", method = RequestMethod.GET)
+    @ResponseBody
+    public String testDocker() {
+
+        return "hello docker";
+    }
 }

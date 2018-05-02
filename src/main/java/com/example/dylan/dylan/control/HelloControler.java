@@ -1,5 +1,8 @@
 package com.example.dylan.dylan.control;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -8,20 +11,29 @@ import java.util.List;
  * Created by Administrator on 2018/2/24.
  */
 @RestController
+@RequestMapping(value="helloCon")
 public class HelloControler {
-
+    //为设置为提供RESRful api文档的设置
+    @ApiOperation(value = "获取用户列表", notes = "")
     @RequestMapping("/hello")
-    public String hello() {
-        return "this is word hello,is from spring root";
+    public String hello() throws Exception {//此处会默认返回spring的异常，返回到默认界面,但不够友好的界面
+        throw new Exception("errorpage");
     }
 
-
+    @ApiOperation(value = "创建用户", notes = "根据User对象创建用户")
+    @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
     //设置支持get提交
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String get() {
         return "method get";
     }
 
+    //配置支持swagger文档显示内容，接口说明文档
+    @ApiOperation(value = "更新用户详细信息", notes = "根据url的id来指定更新对象，并根据传过来的user信息来更新用户详细信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long"),
+            @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
+    })
     //设置支持post
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String post() {
